@@ -1,3 +1,4 @@
+import regaloLogo from '../assets/brand/regalo.svg'
 import { useMemo, useState, type CSSProperties } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '../components/Icon'
@@ -95,10 +96,9 @@ export function Home() {
 
         <div className="hero-art" aria-hidden="true">
           <div className="disc" />
-          <div className="big">{holiday.heroEmojis[0]}</div>
-          <div className="sat">{holiday.heroEmojis[1]}</div>
-          <div className="sat">{holiday.heroEmojis[2]}</div>
-          <div className="sat">{holiday.heroEmojis[3]}</div>
+          <div className="big">
+            <img src={regaloLogo} alt="" style={{ width: 205, height: 220, objectFit: 'contain' }} />
+          </div>
           {/* Estrellitas y confeti alrededor del regalo */}
           {SPARKS.map((sp, i) => (
             <svg key={i} className="spark" viewBox="0 0 24 24" style={sp}>
