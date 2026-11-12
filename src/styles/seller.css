@@ -1,0 +1,657 @@
+/* ───────────────────────────── Fase 3 · vista del vendedor ───────────────────────────── */
+.page-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-ghost-dark {
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+  background: #fff;
+}
+
+.btn-ghost-dark:hover {
+  border-color: var(--plum);
+}
+
+/* ───────────── KPIs */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.kpi {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 4px;
+  position: relative;
+}
+
+.kpi-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--cream-2);
+  color: var(--plum);
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+}
+
+.kpi.gold .kpi-icon {
+  background: var(--gold-100);
+}
+
+.kpi.mint .kpi-icon {
+  background: #e1f3ea;
+  color: var(--mint-700);
+}
+
+.kpi-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.kpi-value {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: var(--plum);
+}
+
+.kpi-hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.withdraw {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: linear-gradient(120deg, var(--plum), var(--plum-700));
+  color: #fff;
+  border-radius: var(--r-lg);
+  padding: 18px 24px;
+}
+
+.withdraw strong {
+  display: block;
+}
+
+.withdraw span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ───────────── Panel: columnas */
+.dash-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+  align-items: start;
+}
+
+.dash-main,
+.dash-side {
+  display: grid;
+  gap: 22px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.count-pill {
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.attend-list {
+  display: grid;
+  gap: 10px;
+}
+
+.attend {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--cream);
+  border-radius: var(--r-md);
+}
+
+.attend strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.attend span {
+  display: block;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-list {
+  display: grid;
+  gap: 12px;
+}
+
+.top-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.top-info {
+  display: grid;
+  gap: 6px;
+}
+
+.top-info strong {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel.alert {
+  background: #fff4e0;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.plain-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.reviews.compact .review {
+  box-shadow: none;
+  background: var(--cream);
+  padding: 14px 16px;
+}
+
+.reviews-top .rating-summary {
+  max-width: 520px;
+}
+
+/* ───────────── Calculadora de comisión */
+.commission {
+  display: grid;
+  gap: 8px;
+  background: var(--cream);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+  font-size: 0.9rem;
+}
+
+.commission-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.commission-row.sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding-left: 12px;
+}
+
+.commission-row.minus {
+  color: var(--coral-600);
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+
+.commission-row.net {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--mint-700);
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+
+.commission-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ───────────── Mis regalos */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inline-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 0 14px;
+  color: var(--muted);
+}
+
+.inline-search input {
+  border: 0;
+  outline: none;
+  padding: 10px 0;
+  background: transparent;
+  min-width: 200px;
+}
+
+.inline-search:focus-within {
+  border-color: var(--plum);
+}
+
+.gift-list {
+  display: grid;
+  gap: 12px;
+}
+
+.gift-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1.6fr) repeat(3, minmax(64px, 0.5fr)) auto auto;
+  gap: 18px;
+  align-items: center;
+  background: var(--card);
+  border-radius: var(--r-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.gift-row.paused {
+  opacity: 0.75;
+}
+
+.gift-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: block;
+}
+
+.gift-main {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.gift-main span {
+  font-size: 0.8rem;
+}
+
+.gift-num {
+  display: grid;
+  gap: 2px;
+  font-size: 0.78rem;
+}
+
+.gift-num b {
+  font-size: 1rem;
+}
+
+.gift-num b.low {
+  color: var(--coral-600);
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.status-badge.active {
+  background: #e1f3ea;
+  color: var(--mint-700);
+}
+
+.status-badge.paused {
+  background: var(--cream-2);
+  color: var(--muted);
+}
+
+.status-badge.out {
+  background: var(--coral-100);
+  color: var(--coral-600);
+}
+
+.gift-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ───────────── Formulario de regalo */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.photo-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 3px solid transparent;
+}
+
+.photo-item.cover {
+  border-color: var(--coral);
+}
+
+.photo-item .pimg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  aspect-ratio: auto !important;
+}
+
+.cover-tag {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.photo-actions {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  display: flex;
+  gap: 4px;
+  z-index: 2;
+}
+
+.photo-actions button {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--plum);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.photo-actions button:hover {
+  background: var(--coral);
+  color: #fff;
+}
+
+.photo-add {
+  aspect-ratio: 1;
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+.photo-add:hover:not([disabled]) {
+  border-color: var(--coral);
+  color: var(--coral-600);
+  background: #fff7f5;
+}
+
+.toggle-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.toggle-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-card.on {
+  border-color: var(--coral);
+  background: #fff7f5;
+}
+
+.toggle-card svg {
+  color: var(--plum);
+}
+
+.toggle-card strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.toggle-card span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.toggle-card:has(input:focus-visible) {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.switch {
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--line);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+.toggle-card.on .switch {
+  background: var(--coral);
+}
+
+.toggle-card.on .switch::after {
+  transform: translateX(18px);
+}
+
+.preview {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-media {
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.preview strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.pcard-tags.static {
+  position: static;
+}
+
+.side-title {
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ───────────── Pedidos del vendedor */
+.buyer-info {
+  display: grid;
+  gap: 2px;
+  font-size: 0.9rem;
+}
+
+.buyer-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+}
+
+.dedication-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 6px 12px;
+  background: var(--gold-100);
+  color: var(--plum-900);
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.order-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  align-items: start;
+}
+
+.order-delivery > div {
+  display: grid;
+  gap: 2px;
+}
+
+.money-box {
+  display: grid;
+  gap: 6px;
+  background: var(--cream);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+}
+
+.sum-row.minus {
+  color: var(--coral-600);
+}
+
+.money-box .sum-row.total {
+  color: var(--mint-700);
+  font-size: 1.05rem;
+}
+
+.waiting-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #8a5a00;
+  background: var(--gold-100);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* ───────────── Responsive fase 3 */
+@media (max-width: 1100px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+  .gift-row {
+    grid-template-columns: 72px minmax(0, 1fr) repeat(3, auto);
+  }
+  .gift-row .status-badge,
+  .gift-row .gift-actions {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .order-split {
+    grid-template-columns: 1fr;
+  }
+  .attend {
+    grid-template-columns: 1fr;
+  }
+  .attend .btn {
+    width: 100%;
+  }
+  .gift-row {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .gift-row .gift-num {
+    grid-column: auto;
+  }
+  .gift-row .status-badge,
+  .gift-row .gift-actions {
+    grid-column: 1 / -1;
+  }
+  .inline-search,
+  .inline-search input {
+    width: 100%;
+  }
+}
