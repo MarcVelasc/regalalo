@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { COMMISSION_RATE } from '../config'
-import { Icon } from './Icon'
+import regaloUrl from '../assets/brand/regalo.svg'
+import wordmarkUrl from '../assets/brand/wordmark.svg'
 
 export function Footer() {
   return (
@@ -8,10 +9,8 @@ export function Footer() {
       <div className="row">
         <div>
           <div className="logo">
-            <span className="logo-mark">
-              <Icon name="gift" size={20} />
-            </span>
-            Regalalo
+            <img className="logo-gift" src={regaloUrl} alt="" width="42" height="45" />
+            <img className="logo-word" src={wordmarkUrl} alt="Regalalo" width="122" height="32" />
           </div>
           <p>Regalos para cada festividad, de emprendedores como tú.</p>
         </div>

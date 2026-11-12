@@ -3,6 +3,8 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { COMMISSION_RATE } from '../config'
 import { selectCartCount, useStore } from '../store/useStore'
 import { useTour } from '../store/tour'
+import regaloUrl from '../assets/brand/regalo.svg'
+import wordmarkUrl from '../assets/brand/wordmark.svg'
 import { Icon } from './Icon'
 import { NotificationBell } from './NotificationBell'
 import { SellerAvatar } from './SellerAvatar'
@@ -54,11 +56,9 @@ export function Header() {
     <header>
       <div className="topbar">
         <Link to={role === 'buyer' ? '/' : '/panel'} className="logo" aria-label="Regalalo, inicio">
-          <span className="logo-mark">
-            <Icon name="gift" size={21} />
-          </span>
-          <span>
-            Regalalo
+          <img className="logo-gift" src={regaloUrl} alt="" width="45" height="48" />
+          <span className="logo-text">
+            <img className="logo-word" src={wordmarkUrl} alt="Regalalo" width="110" height="29" />
             <small>{role === 'buyer' ? 'Regalos con historia' : 'Panel de vendedor'}</small>
           </span>
         </Link>

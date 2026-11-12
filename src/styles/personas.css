@@ -466,3 +466,68 @@
     white-space: normal;
   }
 }
+
+/* Fila de festividades en celular: que se note que se desliza */
+@media (max-width: 640px) {
+  .holiday-row {
+    grid-auto-columns: 44%;
+    padding-right: 28px;
+    -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent);
+    mask-image: linear-gradient(90deg, #000 82%, transparent);
+  }
+}
+
+.holiday-hint {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .holiday-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin: -6px 4px 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+}
+
+/* ───────────── Logo: regalo abierto + nombre 3D */
+.logo-gift {
+  display: block;
+  width: auto;
+  height: 52px;
+  margin: -8px 0 -6px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-word {
+  display: block;
+  width: auto;
+  height: 31px;
+}
+
+.footer .logo-gift {
+  height: 45px;
+}
+
+.footer .logo-word {
+  height: 32px;
+}
+
+@media (max-width: 640px) {
+  .logo-gift {
+    height: 40px;
+  }
+  .logo-word {
+    height: 24px;
+  }
+}

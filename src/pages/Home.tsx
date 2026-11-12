@@ -111,6 +111,31 @@ export function Home() {
         </div>
       </section>
 
+      {/* ───────── Festividades */}
+      <div className="holiday-row" role="group" aria-label="Elige una festividad">
+        {holidays.map((h) => (
+          <button key={h.id} className="holiday-card" aria-pressed={h.id === holidayId} onClick={() => setHolidayId(h.id)}>
+            <span>
+              <strong>{h.name}</strong>
+              <span className="sub">{h.dateLabel}</span>
+            </span>
+            <span className="emo">
+              <Icon name={h.icon} size={22} />
+            </span>
+          </button>
+        ))}
+        <Link to="/catalogo" className="holiday-more">
+          <i>
+            <Icon name="arrow" size={20} />
+          </i>
+          Ver todo
+        </Link>
+      </div>
+
+      <p className="holiday-hint" aria-hidden="true">
+        Desliza para ver más fechas <Icon name="arrow" size={14} />
+      </p>
+
       {/* ───────── Entrada al calendario de regalos */}
       <section className="cal-banner quick-gift">
         <div className="quick-head">
@@ -144,27 +169,6 @@ export function Home() {
           )}
         </div>
       </section>
-
-      {/* ───────── Festividades */}
-      <div className="holiday-row" role="group" aria-label="Elige una festividad">
-        {holidays.map((h) => (
-          <button key={h.id} className="holiday-card" aria-pressed={h.id === holidayId} onClick={() => setHolidayId(h.id)}>
-            <span>
-              <strong>{h.name}</strong>
-              <span className="sub">{h.dateLabel}</span>
-            </span>
-            <span className="emo">
-              <Icon name={h.icon} size={22} />
-            </span>
-          </button>
-        ))}
-        <Link to="/catalogo" className="holiday-more">
-          <i>
-            <Icon name="arrow" size={20} />
-          </i>
-          Ver todo
-        </Link>
-      </div>
 
       {/* ───────── Regalos para la festividad elegida */}
       <section className="section">
