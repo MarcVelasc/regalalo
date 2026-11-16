@@ -26,9 +26,9 @@ const STEPS: Step[] = [
   {
     icon: 'users',
     title: '¿Para quién es el regalo?',
-    text: 'El comprador registra a la persona: quién es, su edad, qué le gusta, la fecha y su presupuesto. No tiene que buscar ni hacer scroll en un catálogo.',
+    text: 'La app empieza aquí, no en un catálogo: el comprador responde paso a paso quién es, su edad, qué le gusta, la fecha y su presupuesto. Al terminar ve directamente pocos regalos elegidos para esa persona.',
     role: 'buyer',
-    to: '/calendario/nueva',
+    to: '/',
   },
   {
     icon: 'bellRing',

@@ -10,11 +10,11 @@ import { NotificationBell } from './NotificationBell'
 import { SellerAvatar } from './SellerAvatar'
 
 const buyerLinks = [
-  { to: '/', label: 'Inicio', end: true },
-  { to: '/catalogo', label: 'Catálogo' },
+  { to: '/', label: 'Regalar', end: true },
   { to: '/calendario', label: 'Mis personas' },
   { to: '/pedidos', label: 'Mis pedidos' },
   { to: '/favoritos', label: 'Favoritos' },
+  { to: '/catalogo', label: 'Explorar' },
 ]
 
 const sellerLinks = [
