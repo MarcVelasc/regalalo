@@ -1,4 +1,5 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { Business } from './pages/Business'
 import { Calendar } from './pages/Calendar'
@@ -8,6 +9,8 @@ import { Cart } from './pages/Cart'
 import { Catalog } from './pages/Catalog'
 import { Checkout } from './pages/Checkout'
 import { Home } from './pages/Home'
+import { Login } from './pages/Login'
+import { useAuth } from './store/auth'
 import { Orders } from './pages/Orders'
 import { ProductDetail } from './pages/ProductDetail'
 import { SellerProfile } from './pages/SellerProfile'
@@ -18,11 +21,26 @@ import { SellerOrders } from './pages/seller/SellerOrders'
 import { SellerReviews } from './pages/seller/SellerReviews'
 import { Wishlist } from './pages/Wishlist'
 
+/** Sin sesión, todo lleva a la pantalla de entrada (y vuelve a donde iba) */
+function RequireAuth({ children }: { children: ReactNode }) {
+  const user = useAuth((s) => s.user)
+  const location = useLocation()
+  if (!user) return <Navigate to="/entrar" replace state={{ from: location.pathname + location.search }} />
+  return <>{children}</>
+}
+
 export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-        <Route element={<Layout />}>
+        <Route path="entrar" element={<Login />} />
+        <Route
+          element={
+            <RequireAuth>
+              <Layout />
+            </RequireAuth>
+          }
+        >
           {/* ───────── Comprador */}
           <Route index element={<Home />} />
           <Route path="catalogo" element={<Catalog />} />

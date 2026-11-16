@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { COMMISSION_RATE } from '../config'
 import { selectCartCount, useStore } from '../store/useStore'
 import { useTour } from '../store/tour'
+import { firstName, formatPhone, useAuth } from '../store/auth'
 import regaloUrl from '../assets/brand/regalo.svg'
 import wordmarkUrl from '../assets/brand/wordmark.svg'
 import { Icon } from './Icon'
@@ -37,6 +38,14 @@ export function Header() {
   )
   const startTour = useTour((s) => s.start)
   const [query, setQuery] = useState('')
+  const [menu, setMenu] = useState(false)
+  const user = useAuth((s) => s.user)
+  const logout = useAuth((s) => s.logout)
+  const signOut = () => {
+    setMenu(false)
+    logout()
+    navigate('/entrar', { replace: true })
+  }
 
   const switchRole = (next: 'buyer' | 'seller') => {
     if (next === role) return
@@ -97,9 +106,27 @@ export function Header() {
                 <Icon name="cart" size={20} />
                 {cartCount > 0 && <span className="badge">{cartCount}</span>}
               </Link>
-              <span className="avatar" title="Tu cuenta (demo)">
-                <Icon name="user" size={20} />
-              </span>
+              <div className="account">
+                <button
+                  type="button"
+                  className="avatar"
+                  aria-label={`Tu cuenta: ${user?.name ?? ''}`}
+                  aria-expanded={menu}
+                  onClick={() => setMenu(!menu)}
+                >
+                  {user ? firstName(user.name).charAt(0).toUpperCase() : <Icon name="user" size={20} />}
+                </button>
+                {menu && user && (
+                  <div className="account-menu" role="menu">
+                    <strong>{user.name}</strong>
+                    <small>{user.phone ? formatPhone(user.phone) : user.email}</small>
+                    {user.email && user.phone && <small>{user.email}</small>}
+                    <button type="button" role="menuitem" onClick={signOut}>
+                      <Icon name="arrowLeft" size={16} /> Cerrar sesión
+                    </button>
+                  </div>
+                )}
+              </div>
             </>
           ) : (
             <>

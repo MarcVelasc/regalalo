@@ -5,6 +5,7 @@ import { Icon } from '../components/Icon'
 import { PersonWizard } from '../components/PersonWizard'
 import { COMMISSION_RATE } from '../config'
 import { relationName } from '../data/audience'
+import { firstName, useAuth } from '../store/auth'
 import { useStore } from '../store/useStore'
 import { daysUntil, formatDate } from '../utils/helpers'
 
@@ -25,6 +26,7 @@ export function Home() {
   const people = useStore((s) => s.people)
   const holidays = useStore((s) => s.holidays)
   const setRole = useStore((s) => s.setRole)
+  const user = useAuth((s) => s.user)
 
   const upcoming = useMemo(() => [...people].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 4), [people])
 
@@ -45,6 +47,7 @@ export function Home() {
           ))}
         </div>
         <div>
+          {user && <span className="home-hi">Hola, {firstName(user.name)}</span>}
           <h1>Regala sin buscar</h1>
           <p>Cuéntanos de esa persona en 6 toques. Te mostramos pocos regalos pensados para ella y te avisamos antes de la fecha.</p>
         </div>

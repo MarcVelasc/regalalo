@@ -10,6 +10,7 @@ import './styles/phase4.css'
 import './styles/calendar.css'
 import './styles/personas.css'
 import './styles/wizard.css'
+import './styles/login.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
